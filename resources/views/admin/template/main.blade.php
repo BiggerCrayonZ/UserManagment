@@ -24,6 +24,9 @@
         <div class="card ">
             <div class="card-header bg-success text-white">@yield('jumbotron') </div>
             <div class="card-block">
+                @yield('tool')
+            </div>
+            <div class="card-block">
                 <div class="card-body">
                     @yield('content')
                 </div>

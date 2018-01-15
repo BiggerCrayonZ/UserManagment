@@ -10,7 +10,10 @@ use App\User;
 class UsersController extends Controller
 {
     public function index(){
-
+        //Obtenemos los datos de la BD ordenandolos por id ascendentemente
+        //Seleccionamos una pagination de 5 usuarios
+        $users = User::orderBy('id', 'ASC')->paginate(5);
+        return view('admin.users.index')->with('users', $users);
     }
 
     public function create(){
