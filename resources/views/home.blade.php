@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Ya tienes una sesión iniciada; accede al portal:
+                    <a href="admin/users" class="btn btn-success">Portal</a>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@
         <img src="{{asset('icons/um_launcher/res/mipmap-xxxhdpi/um_launcher.png')}}" alt="UM">
         <h4>User Managment</h4>
         <br>
-        <button type="button" class="btn btn-outline-success">Acceder</button>
+        <a href="{{ route('login') }}" class="btn btn-outline-success">Acceder</a>
     </div>
 </body>
 @endsection

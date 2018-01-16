@@ -1,22 +1,34 @@
-@extends ('admin.template.main')
+@extends ('admin.template.main') 
 
-@section('title', 'Lista de Usuarios')
+@section('title', 'Lista de Usuarios') 
 
 @section('jumbotron', 'Lista de Usuarios: ')
 
+@section('header')
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1>Bienvenido</h1> 
+        <p>Crear, editar, visualizar y eliminar usuarios, nunca fue tan facil.</p> 
+    </div>
+</div>
+
+@endsection
 
 @section('content')
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 <style>
-    .table{
-        font-size:12px;
+    .table {
+        font-size: 12px;
     }
 </style>
 
-    <!--Renderizamos la tabla con todos los usuarios -->
+<!--Renderizamos la tabla con todos los usuarios -->
+<div class="table-responsive-xl">
     <table class="table table-striped">
         <thead class="thead-dark">
+            <th>Profile: </th>
             <th>ID del Usuario: </th>
             <th>Alias o Nombre Común de Usuario: </th>
             <th>Nombre Completo:</th>
@@ -26,49 +38,58 @@
         </thead>
         <tbody>
             @foreach($users as $user)
-                <tr>
-                    <td>{{$user->id}}</td>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->username}}</td>
-                    <td>{{$user->email}}</td>
-                    <td>
-                        @if($user->member == 'admin')
-                        <span class="badge badge-warning">Administrador</span>
-                        @elseif ($user->member == 'member')
-                        <span class="badge badge-primary">Miembro</span>
-                        @endif
-                    </td>
+            <tr>
+                <td>
+                    <img class="img_profile rounded-circle" width="30px" height="30px" src="{{ asset('uploads/avatars/'.$user->avatar) }}">
+                </td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->username}}</td>
+                <td>{{$user->email}}</td>
+                <td>
+                    @if($user->member == 'admin')
+                    <span class="badge badge-warning">Administrador</span>
+                    @elseif ($user->member == 'member')
+                    <span class="badge badge-primary">Miembro</span>
+                    @endif
+                </td>
 
-                    <td>
-                        <a href="" class="btn btn-warning">
-                            <span class="fa fa-cog  fa-1">
-                        </a> 
-                        <a href="" class="btn btn-danger">                            
-                            <span class="fa fa-times fa-1">
-                        </a>
-                    </td>
-                </tr>
-
+                <td>
+                    <a href="{{  route('users.show', $user->id) }}"
+                        class="btn btn-primary">
+                        <span class="fa fa-eye fa-1">
+                    </a>
+                    <a href="{{ route('users.edit', $user->id) }}" 
+                        class="btn btn-warning">
+                        <span class="fa fa-cog  fa-1">
+                    </a>
+                    <a href="{{  route('admin.users.destroy', $user->id) }}" 
+                        onclick="return confirm('¿Seguro que deseas eliminar este usuario?')"
+                        class="btn btn-danger">
+                        <span class="fa fa-times fa-1">
+                    </a>
+                    
+                </td>
+            </tr>
             @endforeach
         </tbody>
     </table>
-    {{ $users-> links() }}
-
-@endsection
-
+</div>
+{!! $users->render() !!} 
+@endsection 
 @section('tool')
 
 <style>
-    .tool{
-        margin-top:0px;
-        margin-bottom:0px;
-        margin-left:20px;
-        margin-right:20px;
+    .tool {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 </style>
 
 <div class="card tool">
-        <p class="card-header">Herramientas</p>
+    <p class="card-header">Herramientas</p>
     <div class="card-block">
         <a href="{{ route('users.create') }}" class="btn btn-info btn-sm">Nuevo Usuario</a>
     </div>
