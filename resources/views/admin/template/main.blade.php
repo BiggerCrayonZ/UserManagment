@@ -29,6 +29,7 @@
     </style>
     @if (Auth::guest())
     
+    <!--En caso de no acceder al sistema con sesión -->
         <div class="jumbotron jumbotron_fail ">
             <h1>Sesión no Iniciada</h1>
             <span class="fa fa-ban   fa-5x"></span>
@@ -49,7 +50,7 @@
                 </div>
                 <div class="card-block">
                     <div class="card-body">
-                        <!--Obtenemos la paquetería para la resolución del emnsaje Flash-->
+                        <!--Obtenemos la paquetería para la resolución del mensaje Flash-->
                         @include('flash::message')
                         @yield('content')
                     </div>
@@ -58,6 +59,7 @@
         </section>
     @endif
 
+    <!--Footer del sistema-->
     <script src="{{ asset('plugins/jquery/jquery-3.2.1.js')}}"></script>
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
     <div class="footer-bottom">

@@ -38,3 +38,5 @@ Route::get('/home', 'HomeController@index')->middleware('auth');
 //Rutas destinadas al comportamiento de las imagenes de perfil
 Route::get('/profile', 'UsersController@profile')->name('user.profile');
 Route::patch('/profile', 'UsersController@update_profile')->name('user.profile.update');
+
+

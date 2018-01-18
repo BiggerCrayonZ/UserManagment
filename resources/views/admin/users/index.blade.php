@@ -1,9 +1,13 @@
+<!--Hereda del template Main -->
 @extends ('admin.template.main') 
 
+<!--Titulo -->
 @section('title', 'Lista de Usuarios') 
 
+<!--Texto de Barra de Panel de Contenido -->
 @section('jumbotron', 'Lista de Usuarios: ')
 
+<!--Contenido a de la cabecera -->
 @section('header')
 
 <div class="jumbotron jumbotron-fluid">
@@ -15,6 +19,7 @@
 
 @endsection
 
+<!--Contenido a mostrar -->
 @section('content')
 
 
@@ -91,6 +96,7 @@
 <div class="card tool">
     <p class="card-header">Herramientas</p>
     <div class="card-block">
+        <!--Botón para nuevos usuarios -->
         <a href="{{ route('users.create') }}" class="btn btn-info btn-sm">Nuevo Usuario</a>
     </div>
 </div>

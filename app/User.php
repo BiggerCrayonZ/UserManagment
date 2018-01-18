@@ -15,6 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        //Campos destinados a ser instanciado en la base de datos
         'name', 'email', 'password','member', 'username', 'address', 'phone'
     ];
 
