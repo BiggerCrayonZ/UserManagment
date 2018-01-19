@@ -55,6 +55,9 @@
                         @yield('content')
                     </div>
                 </div>
+                <div class="card-footer">
+                    <small class="text-muted">@yield('footer')</small>
+                </div>
             </div>
         </section>
     @endif
