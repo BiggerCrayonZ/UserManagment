@@ -31,7 +31,7 @@ class UsersController extends Controller
     *
     * Funciones Predeterminadas
     *
-    */
+    */      
 
     public function index(){
         /*

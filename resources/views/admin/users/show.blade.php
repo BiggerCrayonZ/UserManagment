@@ -29,7 +29,7 @@
     }
 </style>
 <div class="container-fluid">
-    <div class="card card_view rounded-top  " align="center" style="width:400px">
+    <div class="card card_view rounded-top" align="center" style="width:400px">
         <div class="center">
                 <img class="img_profile_view rounded-circle card-outline-success" src="{{ asset('uploads/avatars/'.$user->avatar) }}">
         </div>
